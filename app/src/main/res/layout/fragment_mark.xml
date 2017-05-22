@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/defaultBg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/mark_tv_goto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_seletor"
+                android:paddingBottom="5dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="5dp"
+                android:text="支出"
+                android:textColor="@drawable/text_color_bottom_tab"
+                android:textSize="@dimen/item_size" />
+
+            <TextView
+                android:id="@+id/mark_tv_into"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="5dp"
+                android:background="@drawable/bg_seletor"
+                android:text="收入"
+                android:textColor="@drawable/text_color_bottom_tab"
+                android:textSize="@dimen/item_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="日期"
+                    android:textColor="@color/colorTxt"
+                    android:textSize="@dimen/item_size" />
+
+                <TextView
+                    android:id="@+id/mark_tv_time"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:drawableRight="@drawable/ic_right"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/item_size" />
+            </LinearLayout>
+
+            <View style="@style/default_line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="用途"
+                    android:textColor="@color/colorTxt"
+                    android:textSize="@dimen/item_size" />
+
+                <TextView
+                    android:id="@+id/mark_tv_info"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:drawableRight="@drawable/ic_right"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/item_size" />
+            </LinearLayout>
+
+            <View style="@style/default_line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="金额"
+                    android:textColor="@color/colorTxt"
+                    android:textSize="@dimen/item_size" />
+
+                <EditText
+                    android:id="@+id/mark_et_money"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:background="#00000000"
+                    android:hint="0.00"
+                    android:inputType="number"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/item_size" />
+
+            </LinearLayout>
+
+            <View style="@style/default_line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="备注"
+                    android:textColor="@color/colorTxt"
+                    android:textSize="@dimen/item_size" />
+
+                <EditText
+                    android:id="@+id/mark_et_desc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:background="#00000000"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/item_size" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/mark_tv_submit"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:background="@drawable/ic_submit"
+            android:gravity="center"
+            android:text="记一笔"
+            android:textColor="@color/white"
+            android:textSize="@dimen/item_size" />
+    </LinearLayout>
+</ScrollView>
