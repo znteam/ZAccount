@@ -24,8 +24,9 @@ public class AccountsDao{
     }
 
     //id TEXT PRIMARY KEY, name TEXT, info TEXT, money INTEGER, des TEXT, time INTEGER
-    public void insertAccountBean(AccountBean bean) {
+    public boolean insertAccountBean(AccountBean bean) {
         synchronized (AccountsDao.class) {
+            boolean flag;
             try {
                 SQLiteDatabase db = DBManager.getInstance().openDatabase();
                 String sSql = "select id from my_accounts where id = ?;";
@@ -34,19 +35,22 @@ public class AccountsDao{
                     String sql = "update my_accounts set name=?, info=?, money=?, des=?, time=? where id = ?;";
                     db.execSQL(
                             sql,
-                            new String[]{bean.getName(), bean.getInfo(), bean.getMoney()+"", bean.getDes(), bean.getTime()+"", bean.getId()});
+                            new String[]{bean.getName(), bean.getInfo(), bean.getMoney()+"", bean.getDes(), bean.getTime(), bean.getId()});
 
                 }else {
                     String sql = "insert into my_accounts (id, name, info, money, des, time) values (?, ?, ?, ?, ?, ?);";
                     db.execSQL(
                             sql,
-                            new String[]{bean.getId(), bean.getName(), bean.getInfo(), bean.getMoney()+"", bean.getDes(), bean.getTime()+""});
+                            new String[]{bean.getId(), bean.getName(), bean.getInfo(), bean.getMoney()+"", bean.getDes(), bean.getTime()});
                 }
+                flag = true;
             } catch (Exception e) {
                 e.printStackTrace();
+                flag = false;
             } finally {
                 DBManager.getInstance().closeDatabase();
             }
+            return flag;
         }
     }
 
@@ -80,7 +84,7 @@ public class AccountsDao{
                     bean.setInfo(cursor.getString(2));
                     bean.setMoney(cursor.getDouble(3));
                     bean.setDes(cursor.getString(4));
-                    bean.setTime(cursor.getLong(5));
+                    bean.setTime(cursor.getString(5));
                 }
             } catch (Exception e) {
                 e.printStackTrace();

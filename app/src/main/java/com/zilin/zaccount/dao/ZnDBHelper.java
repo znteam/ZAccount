@@ -12,7 +12,7 @@ public class ZnDBHelper extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		db.execSQL("CREATE TABLE my_accounts (id TEXT PRIMARY KEY, name TEXT, info TEXT, money INTEGER, des TEXT, time INTEGER);");
+		db.execSQL("CREATE TABLE my_accounts (id TEXT PRIMARY KEY, name TEXT, info TEXT, money INTEGER, des TEXT, time TEXT);");
 	}
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

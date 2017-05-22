@@ -4,12 +4,15 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
+    <View style="@style/default_line" />
 
     <TextView
         android:id="@+id/item_tv_title"
         android:layout_width="match_parent"
+        android:padding="20dp"
+        android:textSize="16sp"
+        android:textColor="#333333"
         android:layout_height="match_parent"  />
-
 </LinearLayout>
 
 

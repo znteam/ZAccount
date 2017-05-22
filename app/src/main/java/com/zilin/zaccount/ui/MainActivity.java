@@ -1,15 +1,12 @@
-package com.zilin.zaccount;
+package com.zilin.zaccount.ui;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
+import com.zilin.zaccount.R;
 import com.zilin.zaccount.adapter.MainFragmentPagerAdapter;
-import com.zilin.zaccount.ui.BaseFragment;
-import com.zilin.zaccount.ui.MainAnalysisFragment;
-import com.zilin.zaccount.ui.MainMarkFragment;
-import com.zilin.zaccount.ui.MainSettingFragment;
 
 import java.util.ArrayList;
 import java.util.List;

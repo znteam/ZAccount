@@ -7,4 +7,6 @@
     <string name="tab_mark">记一笔</string>
     <string name="tab_setting">设置</string>
     <string name="set_pwd">设置密码</string>
+    <string name="mark_info_go">用途</string>
+    <string name="mark_info_in">来源</string>
 </resources>

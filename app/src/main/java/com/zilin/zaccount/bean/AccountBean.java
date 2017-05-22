@@ -8,7 +8,7 @@ public class AccountBean implements Serializable {
     private String info;//来源或用途
     private double money;
     private String des;//备注
-    private long time;
+    private String time;
 
     public String getId() {
         return id;
@@ -50,11 +50,11 @@ public class AccountBean implements Serializable {
         this.des = des;
     }
 
-    public long getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(long time) {
+    public void setTime(String time) {
         this.time = time;
     }
 

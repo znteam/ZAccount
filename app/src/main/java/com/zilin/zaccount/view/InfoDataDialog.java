@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * Created by zning on 2016/5/9.
  */
-public class DataDialog extends Dialog {
+public class InfoDataDialog extends Dialog {
     private Context mContext;
     private TextView titleTv;
     private RecyclerView contentRv;
@@ -30,7 +30,7 @@ public class DataDialog extends Dialog {
     private String title;
     private List<String> dataList;
 
-    public DataDialog(Context context, String title, List<String> dataList) {
+    public InfoDataDialog(Context context, String title, List<String> dataList) {
         super(context, R.style.DefaultDialog);
         this.mContext = context;
         this.title = title;
@@ -45,7 +45,7 @@ public class DataDialog extends Dialog {
 
     private void init() {
         LayoutInflater inflater = LayoutInflater.from(mContext);
-        View view = inflater.inflate(R.layout.dialog_data, null);
+        View view = inflater.inflate(R.layout.dialog_info_data, null);
         setContentView(view);
 
         titleTv = (TextView) view.findViewById(R.id.dialog_tv_title);
@@ -57,6 +57,7 @@ public class DataDialog extends Dialog {
                 if (idl != null) {
                     idl.toConfirm(item);
                 }
+                dismiss();
             }
         });
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(mContext);
