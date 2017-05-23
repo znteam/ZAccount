@@ -9,4 +9,5 @@
     <string name="set_pwd">设置密码</string>
     <string name="mark_info_go">用途</string>
     <string name="mark_info_in">来源</string>
+    <string name="alldata">所有财务数据</string>
 </resources>

@@ -4,9 +4,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.zilin.zaccount.bean.AccountBean;
+import com.zilin.zaccount.common.Global;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class AccountsDao{
 
@@ -85,6 +88,7 @@ public class AccountsDao{
                     bean.setMoney(cursor.getDouble(3));
                     bean.setDes(cursor.getString(4));
                     bean.setTime(cursor.getString(5));
+                    beanList.add(bean);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -94,6 +98,72 @@ public class AccountsDao{
                 DBManager.getInstance().closeDatabase();
             }
             return beanList;
+        }
+    }
+
+    public List<String> getAllTimeBean() {
+        synchronized (AccountsDao.class) {
+            List<String> beanList = new ArrayList<>();
+            Cursor cursor = null;
+            try {
+                SQLiteDatabase db = DBManager.getInstance().openDatabase();
+                String sql = "select distinct time from my_accounts;";
+                cursor = db.rawQuery(sql, null);
+                while (cursor.moveToNext()) {
+                    beanList.add(cursor.getString(0));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (cursor != null)
+                    cursor.close();
+                DBManager.getInstance().closeDatabase();
+            }
+            return beanList;
+        }
+    }
+
+    public  Map<String, Float> getAllGotoMap(String timePre) {
+        synchronized (AccountsDao.class) {
+            Map<String, Float> goMap = new HashMap<>();
+            Cursor cursor = null;
+            try {
+                SQLiteDatabase db = DBManager.getInstance().openDatabase();
+                String sql = "select info, sum(money) from my_accounts where name = ? and time like ? group by info;";
+                cursor = db.rawQuery(sql, new String[]{Global.NAME_GO, timePre+"%"});
+                while (cursor.moveToNext()) {
+                    goMap.put(cursor.getString(0), cursor.getFloat(1));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (cursor != null)
+                    cursor.close();
+                DBManager.getInstance().closeDatabase();
+            }
+            return goMap;
+        }
+    }
+
+    public  Map<String, Float> getAllIntoMap(String timePre) {
+        synchronized (AccountsDao.class) {
+            Map<String, Float> goMap = new HashMap<>();
+            Cursor cursor = null;
+            try {
+                SQLiteDatabase db = DBManager.getInstance().openDatabase();
+                String sql = "select info, sum(money) from my_accounts where name = ? and time like ? group by info;";
+                cursor = db.rawQuery(sql, new String[]{Global.NAME_IN, timePre+"%"});
+                while (cursor.moveToNext()) {
+                    goMap.put(cursor.getString(0), cursor.getFloat(1));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (cursor != null)
+                    cursor.close();
+                DBManager.getInstance().closeDatabase();
+            }
+            return goMap;
         }
     }
 }

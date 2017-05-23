@@ -23,6 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.SettingPwdActivity" />
+        <activity android:name=".ui.AllDataActivity" />
     </application>
 
 </manifest>

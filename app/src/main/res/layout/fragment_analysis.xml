@@ -17,6 +17,7 @@
             android:gravity="left">
 
             <TextView
+                android:id="@+id/analysis_tv_month"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
@@ -71,11 +72,12 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/analysis_tv_all_data"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="20dp"
-                android:text="所有财务数据"
+                android:text="@string/alldata"
                 android:textColor="@color/colorTxt"
                 android:textSize="@dimen/item_size" />
 
