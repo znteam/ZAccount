@@ -138,8 +138,8 @@
 
         <TextView
             android:id="@+id/pwd_tv_submit"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
+            android:layout_width="120dp"
+            android:layout_height="43dp"
             android:background="@color/colorPrimaryDark"
             android:gravity="center"
             android:text="修改"

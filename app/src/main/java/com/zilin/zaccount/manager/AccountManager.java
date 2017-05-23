@@ -3,7 +3,6 @@ package com.zilin.zaccount.manager;
 import android.util.Log;
 
 import com.github.mikephil.charting.data.PieEntry;
-import com.zilin.zaccount.common.Global;
 import com.zilin.zaccount.dao.AccountsDao;
 
 import java.util.ArrayList;
@@ -33,7 +32,7 @@ public class AccountManager {
         List<String> timeList = AccountsDao.getInstance().getAllTimeBean();
         for (int i = 0; i < timeList.size(); i++) {
             try {
-                String month = timeList.get(0).substring(0, timeList.get(0).lastIndexOf("-"));
+                String month = timeList.get(i).substring(0, timeList.get(i).lastIndexOf("-"));
                 if (!monthList.contains(month)) {
                     monthList.add(month);
                 }

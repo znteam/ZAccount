@@ -16,16 +16,23 @@ public class Global {
 
     public static List<String> getIntoDataList() {
         List<String> dataList = new ArrayList<>();
-        dataList.add("黑钱");
         dataList.add("工资");
+        dataList.add("兼职");
+        dataList.add("理财");
+        dataList.add("中奖");
+        dataList.add("礼金");
+        dataList.add("其他");
         return dataList;
     }
 
     public static List<String> getGotoDataList() {
         List<String> dataList = new ArrayList<>();
-        dataList.add("吃饭");
-        dataList.add("泡妞");
-        dataList.add("喝酒");
+        dataList.add("交通");
+        dataList.add("餐饮");
+        dataList.add("购物");
+        dataList.add("娱乐");
+        dataList.add("健康");
+        dataList.add("其他");
         return dataList;
     }
 }

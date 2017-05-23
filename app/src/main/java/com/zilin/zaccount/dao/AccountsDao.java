@@ -2,6 +2,7 @@ package com.zilin.zaccount.dao;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.zilin.zaccount.bean.AccountBean;
 import com.zilin.zaccount.common.Global;
@@ -103,14 +104,14 @@ public class AccountsDao{
 
     public List<String> getAllTimeBean() {
         synchronized (AccountsDao.class) {
-            List<String> beanList = new ArrayList<>();
+            List<String> timeList = new ArrayList<>();
             Cursor cursor = null;
             try {
                 SQLiteDatabase db = DBManager.getInstance().openDatabase();
                 String sql = "select distinct time from my_accounts;";
                 cursor = db.rawQuery(sql, null);
                 while (cursor.moveToNext()) {
-                    beanList.add(cursor.getString(0));
+                    timeList.add(cursor.getString(0));
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -119,7 +120,7 @@ public class AccountsDao{
                     cursor.close();
                 DBManager.getInstance().closeDatabase();
             }
-            return beanList;
+            return timeList;
         }
     }
 

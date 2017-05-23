@@ -1,8 +1,5 @@
 <resources>
-    <string name="app_name">ZAccount</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="app_name">Zn记账</string>
     <string name="tab_analysis">分析</string>
     <string name="tab_mark">记一笔</string>
     <string name="tab_setting">设置</string>

@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/defaultBg"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="10dp">
@@ -9,29 +10,35 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="20dp"
+        android:paddingTop="60dp"
+        android:paddingBottom="20dp"
         android:src="@drawable/ic_logo_big" />
 
-    <TextView
-        android:id="@+id/setting_tv_pwd"
+    <EditText
+        android:id="@+id/login_et_pwd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:drawableLeft="@drawable/ic_setting"
+        android:drawableLeft="@drawable/ic_login"
         android:drawablePadding="10dp"
         android:gravity="center_vertical"
         android:padding="16dp"
-        android:text="@string/set_pwd"
-        android:textColor="@color/colorTxt"
-        android:textSize="@dimen/item_size" />
+        android:hint="请输入密码（6位数字）"
+        android:maxLength="6"
+        android:textColor="@color/colorPrimaryDark"
+        android:focusable="true"
+        android:inputType="numberPassword"
+        android:focusableInTouchMode="true"
+        android:textSize="@dimen/item_size"/>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:drawablePadding="10dp"
+        android:id="@+id/login_tv_submit"
+        android:layout_width="120dp"
+        android:layout_height="43dp"
+        android:background="@color/colorPrimaryDark"
         android:gravity="center"
-        android:padding="13dp"
-        android:text="制作：李子霖"
-        android:textColor="@color/colorPrimaryDark"
+        android:text="进入"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"
         android:textSize="@dimen/item_size" />
 </LinearLayout>

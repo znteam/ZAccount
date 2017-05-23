@@ -49,14 +49,24 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.MyViewHo
             return;
         }
         holder.setTitle(bean.getInfo());
-        holder.setMoneyTv(bean.getMoney()+"");
+        holder.setTime(bean.getTime());
+        holder.setMoneyTv("¥"+bean.getMoney());
         holder.setStatus(TextUtils.equals(bean.getName(), Global.NAME_IN));
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (il != null) {
+                    il.onClick(bean);
+                }
+            }
+        });
 
         holder.delIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (il != null) {
-                    il.onClick(bean);
+                    il.onDel(bean);
                 }
                 dataList.remove(bean);
                 notifyDataSetChanged();
@@ -71,13 +81,14 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.MyViewHo
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView titleTv, moneyTv;
+        private TextView titleTv, moneyTv, timeTv;
         private ImageView delIv, statusIv;
 
         public MyViewHolder(View view) {
             super(view);
             titleTv = (TextView) view.findViewById(R.id.item_tv_title);
             moneyTv = (TextView) view.findViewById(R.id.item_tv_money);
+            timeTv = (TextView) view.findViewById(R.id.item_tv_time);
             delIv = (ImageView) view.findViewById(R.id.item_iv_del);
             statusIv = (ImageView) view.findViewById(R.id.item_iv_status);
         }
@@ -85,8 +96,11 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.MyViewHo
         public void setTitle(String title) {
             titleTv.setText(title);
         }
+        public void setTime(String time) {
+                timeTv.setText(time);
+        }
         public void setMoneyTv(String money) {
-            moneyTv.setText("¥"+money);
+            moneyTv.setText(money);
         }
         public void setStatus(boolean flag) {
             statusIv.setSelected(flag);
@@ -95,5 +109,6 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.MyViewHo
 
     public interface IListener {
         void onClick(AccountBean item);
+        void onDel(AccountBean item);
     }
 }
